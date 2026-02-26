@@ -3,7 +3,8 @@ import dotenv from 'dotenv'
 
 //let pool: Pool | undefined;
 
-dotenv.config();
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
+//dotenv.config({ path: `.env.development.local` })
 
 const pool = new Pool({
   user: process.env.DB_USER,

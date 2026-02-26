@@ -1,0 +1,14 @@
+.col-md-3{
+    padding: 20px;
+    background-color:bisque;
+    margin-left: 2%;
+}
+
+.col-md-3 img{
+    border-radius: 3px;
+    border: black 4px groove;
+}
+
+.col-md-3 p{
+    padding-top: 10px;
+}

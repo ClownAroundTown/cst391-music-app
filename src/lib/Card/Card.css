@@ -1,0 +1,11 @@
+.card-content{
+    align-items: center !important;
+    justify-content: center !important;
+    display: flexbox;
+}
+
+img{
+    align-self: center;
+    height:200px;
+    width: 200px;
+}

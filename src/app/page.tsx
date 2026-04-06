@@ -32,7 +32,8 @@ async function Page(){
 }
 
 
-export default function Home() {
+export default async function Home() {
+  await connection()
   return (
     <div className="container">
       <NavBar />

@@ -1,66 +1,47 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import {allAlbums} from "@/lib/db";
+import Card from "@/lib/Card/Card";
+import NavBar from "@/lib/NavBar/NavBar";
+// Source - https://stackoverflow.com/a/44985246
+// Posted by Praveen M P, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-04-05, License - CC BY-SA 4.0
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import SearchForm from "@/lib/SearchForm/SearchForm";
+
+async function Page(){
+  const albums = await allAlbums()
+  const deck = albums.map((AlbumOBJ) => {
+     const handleSelectionOne = (albumId:number) => {
+      console.log("Selected ID is " + albumId);
+    };
+
+      return <Card
+          key={AlbumOBJ.albumId}
+          albumID={AlbumOBJ.albumId}
+          albumTitle={AlbumOBJ.title}
+          albumDescription={AlbumOBJ.description}
+          buttonText="Cool"
+          imgURL={AlbumOBJ.image}
+          onClick={handleSelectionOne}
+        />
+    });
+
+  console.log(albums)
+
+  return <>{deck}</>;
+}
+
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="container">
+      <NavBar />
+      <SearchForm />
+      <div className="row no-gutters">
+        {Page()}
+      </div>
     </div>
   );
 }

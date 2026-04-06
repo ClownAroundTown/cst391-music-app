@@ -10,7 +10,7 @@ class AlbumOBJ implements Album{
     image: string
     tracks: Track[]
 
-    constructor(data:{id:number, title:string, artist:string, year:number, image:string, description:string, tracks?:[]}){
+    constructor(data:Record<string, any>){
         this.albumId=data.id;
         this.title=data.title;
         this.artist=data.artist;

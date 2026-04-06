@@ -12,7 +12,7 @@ async function getData() {
 }
 
 async function getOne(id:number) {
-  const sql = neon('https://ep-withered-recipe-ai8efkcv.apirest.c-4.us-east-1.aws.neon.tech/neondb/rest/v1');
+  const sql = neon(process.env.DATABASE_URL!);
   const response = await sql.query(`SELECT * FROM albums WHERE id = $1`, [id]);
   return response;
 }

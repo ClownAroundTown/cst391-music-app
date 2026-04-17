@@ -14,11 +14,11 @@ export const readAlbumsById = (id:number) => {
 }
 
 export const readAlbumsByDescription = (desc:string) => {
-    return `SELECT id as albumId, title AS title, artist AS artist, description AS description, year AS year, image AS image FROM albums WHERE albums.description LIKE ${(desc)}`
+    return `SELECT id as id, title AS title, artist AS artist, description AS description, year AS year, image AS image FROM albums WHERE albums.description LIKE ${(desc)}`
 }
 
 export const readAlbumsByTitle = (title:string) => {
-    return `SELECT id as albumId, title AS title, artist AS artist, description AS description, year AS year, image AS image FROM albums WHERE albums.title LIKE '%${(title)}%'`
+    return `SELECT id as id, title AS title, artist AS artist, description AS description, year AS year, image AS image FROM albums WHERE albums.title LIKE '%${(title)}%'`
 }
 
 export const updateAlbum = (album:AlbumOBJ) => {

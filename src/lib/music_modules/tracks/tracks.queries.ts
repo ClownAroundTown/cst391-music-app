@@ -1,15 +1,25 @@
-export const trackQueries = {
-    createTrack: `
-    INSERT INTO tracks (album_id, title, number, video_url) VALUES(?,?,?,?)
-    `,
-    readTracks:`
-    SELECT title as title,video_url as video, lyrics as lyrics
-    FROM music.tracks
-    WHERE album_id=?
-    `,
-    updateTrack:`
-    UPDATE music.tracks
-    SET title = ?, number = ?, video url = ?, lyrics = ?
-    WHERE id = ?;
+import TrackOBJ, { altTrackOBJ } from "./tracks.model"
+
+export const readTracks = (albumID:number) => {
+    return `
+    SELECT * FROM tracks
+    WHERE album_id=${(albumID)}
     `
+}
+
+export const createTrack = (track:altTrackOBJ) => {
+    return `
+    INSERT INTO tracks (album_id, title, number, video_url) VALUES(${(track.id)},'${(track.title?.replaceAll("'", "''"))}',${(track.number)},'${(track.video)}')
+    `
+}
+
+export const updateTrack = (track:TrackOBJ) => {
+    return `UPDATE tracks
+    SET title = '${(track.title?.replaceAll("'", "''"))}', number = ${((track.number))}, video_url = '${((track.video))}', lyrics = '${((track.lyrics?.replaceAll("'", "''")))}'
+    WHERE id = ${(track.id)};
+    `
+}
+
+export const deleteTrack = (id:number) => {
+    return `DELETE FROM tracks WHERE id = ${(id)}?`
 }

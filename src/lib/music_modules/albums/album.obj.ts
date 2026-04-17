@@ -1,7 +1,7 @@
 import { Album } from './albums.model'
 import { Track } from '../tracks/tracks.model'
 
-class AlbumOBJ implements Album{
+export default class AlbumOBJ implements Album{
     albumId: number
     title: string
     artist: string
@@ -21,4 +21,29 @@ class AlbumOBJ implements Album{
     }
 }
 
-export default AlbumOBJ;
+export class altAlbumOBJ implements Album{
+    albumId: number
+    title: string
+    artist: string
+    description: string
+    year: number
+    image: string
+    tracks: Track[] | undefined
+
+    constructor(albumId: number,
+    title: string,
+    artist: string,
+    description: string,
+    year: number,
+    image: string,
+    tracks?: Track[])
+    {
+        this.albumId=albumId
+        this.title=title;
+        this.artist=artist;
+        this.description=description;
+        this.year=year;
+        this.image=image;
+        this.tracks = tracks;
+    }
+}

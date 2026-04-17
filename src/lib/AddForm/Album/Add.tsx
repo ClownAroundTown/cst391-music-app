@@ -1,9 +1,7 @@
 'use client'
 
 import React, { useState } from "react";
-import './SearchForm.css';
-import { useSearchParams, usePathname, useRouter } from 'next/navigation';
-import AlbumOBJ from "../music_modules/albums/album.obj";
+import AlbumOBJ from "@/lib/music_modules/albums/album.obj";
 
  const NewAlbum = () => {
    const [albumTitle, setAlbumTitle] = useState('');

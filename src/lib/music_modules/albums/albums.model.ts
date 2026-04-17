@@ -7,5 +7,5 @@ export interface Album{
     description: string,
     year: number,
     image: string,
-    tracks: Track[]
+    tracks: Track[] | undefined
 }

@@ -26,8 +26,9 @@ class albumDB {
         console.log(readAlbumsByArtist(artist))
         return SQL(readAlbumsByArtist(artist))
       }
-      else if (id != null){
-        if (!isNaN(id)){
+      else if (id != null && id != undefined){
+        console.log("ID NOT NAN? ", !Number.isNaN(id), id)
+        if (!Number.isNaN(id) ){
           console.log(readAlbumsById(id))
           return SQL(readAlbumsById(id))
         }

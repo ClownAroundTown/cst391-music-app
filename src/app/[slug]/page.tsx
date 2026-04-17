@@ -22,7 +22,7 @@ export default async function OneAlbum(
 
     const album:AlbumOBJ = (await DBAlbum.READ(
                     null, parseInt(searchParams.id))
-                ).map(
+                )!.map(
                     (data:Record<string, any>) => 
                         {return new AlbumOBJ(data)}
                     )[0];

@@ -27,8 +27,10 @@ class albumDB {
         return SQL(readAlbumsByArtist(artist))
       }
       else if (id != null){
-        console.log(readAlbumsById(id))
-        return SQL(readAlbumsById(id))
+        if (!isNaN(id)){
+          console.log(readAlbumsById(id))
+          return SQL(readAlbumsById(id))
+        }
       }
       else if (title != null){
         console.log(readAlbumsByTitle(title))

@@ -22,7 +22,7 @@ export const readAlbumsByTitle = (title:string) => {
 }
 
 export const updateAlbum = (album:AlbumOBJ) => {
-    return (`UPDATE albums SET title='${album.title}', artist='${album.artist}', year=${album.year}, image='${album.image}', description='${(album.description).replaceAll("'", "''")}' FROM (SELECT * FROM albums) WHERE albums.id=${album.albumId}`)
+    return (`UPDATE albums SET title='${(album.title).replaceAll("'", "''")}', artist='${album.artist}', year=${album.year}, image='${album.image}', description='${(album.description).replaceAll("'", "''")}' FROM (SELECT * FROM albums) WHERE albums.id=${album.albumId}`)
 }
 
 export const createAlbum = (album:AlbumOBJ|altAlbumOBJ) => {

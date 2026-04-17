@@ -9,7 +9,7 @@ import React from 'react';
 async function Page(){
   await connection()
   const album = await DBAlbum.READ()
-  const deck = album.map((AlbumOBJ) => {
+  const deck = album!.map((AlbumOBJ) => {
      const handleSelectionOne = (albumId:number) => {
       console.log("Selected ID is " + albumId);
     };

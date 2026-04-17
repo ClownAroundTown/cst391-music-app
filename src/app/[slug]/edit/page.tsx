@@ -24,7 +24,7 @@ export default async function Page (
             await DBAlbum.READ(
                 null, parseInt(searchParams.id)
                 )
-            ).map(
+            )!.map(
                 (data:Record<string, any>) => 
                     {return new AlbumOBJ(data)}
                 )[0];

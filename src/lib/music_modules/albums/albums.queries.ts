@@ -18,7 +18,7 @@ export const readAlbumsByDescription = (desc:string) => {
 }
 
 export const readAlbumsByTitle = (title:string) => {
-    return `SELECT id as albumId, title AS title, artist AS artist, description AS description, year AS year, image AS image FROM albums WHERE albums.description LIKE ${(title)}`
+    return `SELECT id as albumId, title AS title, artist AS artist, description AS description, year AS year, image AS image FROM albums WHERE albums.title LIKE '%${(title)}%'`
 }
 
 export const updateAlbum = (album:AlbumOBJ) => {

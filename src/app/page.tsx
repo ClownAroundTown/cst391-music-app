@@ -6,9 +6,38 @@ import SearchForm from "@/lib/SearchForm/SearchForm";
 import { connection } from 'next/server';
 import React from 'react';
 
-async function Page(){
+async function Page(props: {
+        searchParams: Promise<{
+            query?:string
+        }>;
+        }){
   await connection()
-  const album = await DBAlbum.READ()
+
+  const searchParams = await props.searchParams
+  const query = searchParams.query;
+  console.log(searchParams)
+
+  if (query != undefined){
+    const album = await DBAlbum.READ(null, null, query)
+    const deck = album!.map((AlbumOBJ) => {
+      const handleSelectionOne = (albumId:number) => {
+        console.log("Selected ID is " + albumId);
+      };
+
+        return <Card
+            key={AlbumOBJ.id}
+            albumID={AlbumOBJ.id}
+            albumTitle={AlbumOBJ.title}
+            albumDescription={AlbumOBJ.description}
+            buttonText="See More"
+            imgURL={AlbumOBJ.image}
+            onClick={handleSelectionOne}
+          />
+      });
+    return <React.Fragment key={1}>{deck}</React.Fragment>;
+  }
+  else
+  {const album = await DBAlbum.READ()
   const deck = album!.map((AlbumOBJ) => {
      const handleSelectionOne = (albumId:number) => {
       console.log("Selected ID is " + albumId);
@@ -24,18 +53,22 @@ async function Page(){
           onClick={handleSelectionOne}
         />
     });
-  return <React.Fragment key={1}>{deck}</React.Fragment>;
+  return <React.Fragment key={1}>{deck}</React.Fragment>;}
 }
 
 
-export default async function Home() {
+export default async function Home(props: {
+        searchParams: Promise<{
+            query?:string
+        }>;
+        }) {
   await connection()
   return (
     <div className="container">
       <NavBar />
       <SearchForm />
       <div className="row no-gutters">
-        {Page()}
+        {Page(props)}
       </div>
     </div>
   );

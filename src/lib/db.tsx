@@ -31,6 +31,9 @@ class albumDB {
           console.log(readAlbumsById(id))
           return SQL(readAlbumsById(id))
         }
+        else{
+          return SQL(readAlbums())
+        }
       }
       else if (title != null){
         console.log(readAlbumsByTitle(title))

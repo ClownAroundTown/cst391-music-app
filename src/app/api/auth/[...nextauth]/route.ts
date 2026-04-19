@@ -17,7 +17,7 @@ export const authOptions:NextAuthOptions = {
         clientSecret:process.env.GITHUB_CLIENT_SECRET!
     })
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_SECRET,
   session:{strategy:"jwt"},
   callbacks: {        
     async jwt({token, account, profile}: {token: JWT, account?: Account | null, profile?: Profile | null;

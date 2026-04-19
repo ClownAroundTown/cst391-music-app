@@ -1,13 +1,12 @@
 import React from "react";
 import Link from 'next/link'
-import './NavBar.css';
 
 
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <span className="navbar-brand">
-        Navbar
+        Music App
       </span>
       <button
         className="navbar-toggler"
@@ -30,6 +29,16 @@ const NavBar = () => {
           <li>
             <Link href="/new">
               New
+            </Link>
+          </li>
+          <li>
+            <Link href="/api/auth/signin">
+              Sign Out
+            </Link>
+          </li>
+          <li>
+            <Link href="/api/auth/signout">
+              Sign Out
             </Link>
           </li>
         </ul>

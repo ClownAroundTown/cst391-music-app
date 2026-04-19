@@ -1,0 +1,140 @@
+:root {
+  --space: #22223b;
+  --dust: #4a4e69;
+  --ash: #9a8c98;
+  --almond: #c9ada7;
+  --seashell: #f2e9e4;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.CONTAINER {
+  background-color: var(--space);
+  overflow: hidden;
+  height: 100vh;
+  scrollbar-width: 0;
+}
+
+.YIXI {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input.form-control{
+    background-color: var(--seashell);
+    border: solid 2px var(--almond);
+    transition: all 0.2s;
+  }
+
+  input.form-control:hover{
+    background-color: var(--seashell);
+    border: solid 2px var(--seashell);
+  }
+
+  button.btn.btn-primary{
+    background-color: var(--ash);
+    border: solid 1px var(--dust);
+    border-radius: 15px;
+    transition: all 0.2s;
+  }
+
+  button.btn.btn-primary:hover{
+    background-color: var(--almond);
+    border: solid 1px var(--seashell);
+    border-radius: 15px;
+  }
+}
+
+.SONGS {
+  height: 90vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-left: 3%;
+  padding-right: 3%;
+  background-color: var(--ash);
+  border-radius: 15px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  display:block;
+
+  .card{
+    background-color: var(--seashell);
+    display:flex;
+    min-width: 260px;
+    align-items: center;
+    z-index: 1;
+    transition: 0.2s all;
+
+    img{
+      max-height:250px;
+      width:auto;
+    }
+    .card-header{
+      background: none;
+    }
+
+    .card-content{
+      color:var(--space);
+
+      p.card-text{
+        height:150px;
+        overflow-y: scroll;
+      }
+    }
+  }
+
+  .card:hover{
+    box-shadow: 0px 0px 20px var(--space);
+    z-index: 2;
+  }
+
+}
+
+.navbar {
+  padding: 0.5% !important;
+  background-color: var(--dust);
+
+  .navbar-brand {
+    color: var(--seashell);
+    font-size: 30px;
+    border-radius: 10px;
+    transition: all 0.5s;
+    font-family: monospace;
+  }
+
+  .navbar-brand:hover {
+    background-color: var(--almond);
+    color:var(--space);
+    border-radius: 10px;
+    font-size: 30px;
+    transition: all 0.5s;
+    font-family: monospace;
+  }
+
+  a{
+    color: var(--space);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  li {
+    background-color:var(--ash);
+    height: 30px;
+    width:70px;
+    border-radius: 10px;
+    padding-left:5%;
+    padding-right:5%;
+    margin-right: 3px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+  }
+
+  li:hover {
+    background-color:var(--almond);
+    transition: all 0.2s;
+  }
+}

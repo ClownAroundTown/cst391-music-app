@@ -4,6 +4,7 @@ import NavBar from "@/lib/NavBar/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchForm from "@/lib/SearchForm/SearchForm";
 import { connection } from 'next/server';
+import { Row, Col } from "react-bootstrap";
 import React from 'react';
 
 async function Page(props: {
@@ -56,20 +57,26 @@ async function Page(props: {
   return <React.Fragment key={1}>{deck}</React.Fragment>;}
 }
 
-
-export default async function Home(props: {
-        searchParams: Promise<{
-            query?:string
-        }>;
+export default async function Home(
+  props: {
+        searchParams: Promise<{query?:string}>;
         }) {
   await connection()
   return (
-    <div className="container">
-      <NavBar />
-      <SearchForm />
-      <div className="row no-gutters">
-        {Page(props)}
+        <div className="CONTAINER">
+        <NavBar />
+        <Row className="YIXI">
+          <Col md={4}>
+            <SearchForm />
+          </Col>
+          <Col lg={8}>
+            <div className="SONGS">
+              <Row>
+                {Page(props)}
+              </Row>
+            </div>
+          </Col>
+        </Row>
       </div>
-    </div>
   );
 }

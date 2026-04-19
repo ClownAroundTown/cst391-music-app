@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from "react";
-import './SearchForm.css';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
 interface searchProps{
@@ -55,7 +54,7 @@ const SearchForm = () => {
             defaultValue={searchParams.get('query')?.toString()}
           />{" "}
         </div>{" "}
-        <button className="btn btn-primary col-md-3" type="submit">Submit form</button>
+        <button className="btn btn-primary col-md-3" type="submit">GO!</button>
       </form>{" "}
     </div>
   );

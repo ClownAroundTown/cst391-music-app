@@ -33,12 +33,12 @@ const NavBar = () => {
           </li>
           <li>
             <Link href="/api/auth/signin">
-              Sign Out
+              Login
             </Link>
           </li>
           <li>
             <Link href="/api/auth/signout">
-              Sign Out
+              Logout
             </Link>
           </li>
         </ul>

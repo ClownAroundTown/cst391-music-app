@@ -6,6 +6,7 @@ import { Nav, Tab, TabContent, TabContainer, Row, Col } from 'react-bootstrap';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { TrackAndLyric } from '@/lib/Card/Tracks/TracksCard';
+import { RoleTitle } from '@/lib/Title';
 
 interface props{
   title:string,
@@ -18,6 +19,7 @@ interface props{
 const Page = (props:props) =>{
   const {data:session} = useSession();
   const isAdmin=session?.user?.role === "admin";
+  console.log("ROLE: ", session?.user?.role);
 
   if (isAdmin){
   return(

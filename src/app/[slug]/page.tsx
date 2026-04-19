@@ -5,6 +5,7 @@ import { DBAlbum, DBTrack } from '@/lib/db';
 import AlbumOBJ from '@/lib/music_modules/albums/album.obj';
 import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
 import Page from './pagecomps';
+import { RoleTitle } from '@/lib/Title';
 
 export default async function OneAlbum(
     props: {
@@ -34,6 +35,10 @@ export default async function OneAlbum(
     })
 
     return(
+        <>
+        <RoleTitle />
         <Page title={album.title} image={album.image} description={album.description} ID={album.albumId} trackRend={trackRend}/>
+        </>
+    
     );
 };

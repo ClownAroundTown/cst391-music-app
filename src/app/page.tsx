@@ -6,6 +6,7 @@ import SearchForm from "@/lib/SearchForm/SearchForm";
 import { connection } from 'next/server';
 import { Row, Col } from "react-bootstrap";
 import React from 'react';
+import { RoleTitle } from "@/lib/Title";
 
 async function Page(props: {
         searchParams: Promise<{
@@ -63,7 +64,9 @@ export default async function Home(
         }) {
   await connection()
   return (
-        <div className="CONTAINER">
+    <>
+    <RoleTitle />
+      <div className="CONTAINER">
         <NavBar />
         <Row className="YIXI">
           <Col md={4}>
@@ -78,5 +81,6 @@ export default async function Home(
           </Col>
         </Row>
       </div>
+    </>
   );
 }

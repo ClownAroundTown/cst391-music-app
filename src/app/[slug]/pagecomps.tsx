@@ -55,7 +55,7 @@ const Page = (props:props) =>{
   else{
     return (
         <>
-        <div className="container row">
+        <div className="AlbumDetails container row">
                 <div className='Card col-md-5'>
                     <h2>Album Details for {props.title}</h2>
                     <div className="card">

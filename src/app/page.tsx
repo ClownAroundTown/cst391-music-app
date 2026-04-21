@@ -66,8 +66,8 @@ export default async function Home(
   return (
     <>
     <RoleTitle />
+    <NavBar />
       <div className="CONTAINER">
-        <NavBar />
         <Row className="YIXI">
           <Col md={4}>
             <SearchForm />

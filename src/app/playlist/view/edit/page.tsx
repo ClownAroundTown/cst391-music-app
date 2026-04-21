@@ -3,7 +3,7 @@ import './page.css'
 import { DBAlbum, DBTrack } from '@/lib/db';
 import EditAlbum from '@/lib/EditForm/Album/Form';
 import AlbumOBJ from '@/lib/music_modules/albums/album.obj';
-import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
+import TrackOBJ from '@/lib/NavBar/tracks/tracks.model';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import EditTrack from '@/lib/EditForm/Track/Form';
 import NewTrack from '@/lib/AddForm/Track/Add';

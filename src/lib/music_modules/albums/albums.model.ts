@@ -1,4 +1,4 @@
-import { Track } from '../tracks/tracks.model';
+import { Track } from '../../NavBar/tracks/tracks.model';
 
 export interface Album{
     albumId: number,

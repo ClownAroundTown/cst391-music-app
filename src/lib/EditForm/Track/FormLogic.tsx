@@ -1,6 +1,6 @@
 'use server'
 import { redirect } from 'next/navigation'
-import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
+import TrackOBJ from '@/lib/NavBar/tracks/tracks.model';
 import { DBTrack } from '../../db';
 import { isNumberObject } from 'util/types';
 

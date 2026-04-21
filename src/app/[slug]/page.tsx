@@ -2,7 +2,7 @@ import './page.css'
 import 'bootstrap/dist/css/bootstrap.min.css';   
 import { DBAlbum, DBTrack } from '@/lib/db';
 import AlbumOBJ from '@/lib/music_modules/albums/album.obj';
-import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
+import TrackOBJ from '@/lib/NavBar/tracks/tracks.model';
 import Page from './pagecomps';
 import { RoleTitle } from '@/lib/Title';
 import NavBar from '@/lib/NavBar/NavBar';

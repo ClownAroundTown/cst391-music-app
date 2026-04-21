@@ -2,8 +2,8 @@ import dotenv from 'dotenv'
 import { neon } from '@neondatabase/serverless';
 import AlbumOBJ, { altAlbumOBJ } from './music_modules/albums/album.obj';
 import { readAlbums, readAlbumsByArtist, readAlbumsByDescription, readAlbumsById, readAlbumsByTitle, updateAlbum, createAlbum, deleteAlbum } from './music_modules/albums/albums.queries';
-import { readTracks, readOneTrack, createTrack, updateTrack, deleteTrack } from './music_modules/tracks/tracks.queries';
-import TrackOBJ, { altTrackOBJ } from './music_modules/tracks/tracks.model';
+import { readTracks, readOneTrack, createTrack, updateTrack, deleteTrack } from './NavBar/tracks/tracks.queries';
+import TrackOBJ, { altTrackOBJ } from './NavBar/tracks/tracks.model';
 import PlaylistOBJ, { altPlaylistOBJ } from './music_modules/playlist/playlist.model';
 import { readPlaylists, readPlaylistByTitle, readPlaylistByID, readPlaylistTracks, addPlaylistTracks, removePlaylistTrack, editPlaylist, deletePlaylist, createPlaylist } from './music_modules/playlist/playlist.queries';
 

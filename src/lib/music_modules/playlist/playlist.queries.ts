@@ -1,5 +1,5 @@
 import PlaylistOBJ from "./playlist.model"
-import TrackOBJ from "../tracks/tracks.model"
+import TrackOBJ from "../../NavBar/tracks/tracks.model"
 
 export const readPlaylists = () => {
     return `

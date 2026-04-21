@@ -11,9 +11,17 @@ export const readPlaylistTracks = (id:number) => {
     return `SELECT * FROM playlist_tracks WHERE playlist_id=${id}`
 }
 
+export const readPlaylistByTitle = (title:string) => {
+    return `SELECT * FROM playlist WHERE name LIKE '%${title}%'`
+}
+
+export const readPlaylistByID = (id:number) => {
+    return `SELECT * FROM playlist WHERE id = ${(id)}`
+}
+
 export const createPlaylist = (playlist:PlaylistOBJ) => {
     return `
-    INSERT INTO playlist (name) VALUES(${(playlist.name)})
+    INSERT INTO playlist (name) VALUES('${(playlist.name)}')
     `
 }
 

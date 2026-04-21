@@ -7,6 +7,7 @@ import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import EditTrack from '@/lib/EditForm/Track/Form';
 import NewTrack from '@/lib/AddForm/Track/Add';
+import { RoleCheck } from '@/lib/AddForm/AddPlaylist/editorRender';
 
 export default async function Page (
      props: {
@@ -36,6 +37,7 @@ export default async function Page (
 
    return (
     <div>
+        <RoleCheck />
         <Container>
             <Row>
                 <Col sm={6}>

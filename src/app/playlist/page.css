@@ -1,0 +1,51 @@
+:root {
+  --space: #22223b;
+  --dust: #4a4e69;
+  --ash: #9a8c98;
+  --almond: #c9ada7;
+  --seashell: #f2e9e4;
+}
+
+.PLAYLISTS{
+  background-color: var(--space);
+  height:95vh;
+  padding: 4%;
+  display:flex;
+
+  .LIST{
+    background-color: var(--almond);
+    border-radius: 5px;
+  }
+
+  .NEWPLAYLIST{
+    background-color: var(--almond);
+    border-radius:5px;
+    margin-left:2%;
+
+    button.btn.btn-primary{
+        background-color: var(--ash);
+        border: solid 1px var(--dust);
+        border-radius: 15px;
+        transition: all 0.2s;
+    }
+
+    button.btn.btn-primary:hover{
+        background-color: var(--almond);
+        border: solid 1px var(--seashell);
+        border-radius: 15px;
+    }
+
+    }
+}
+
+.MinPlaylistCard{
+    background-color: var(--seashell);
+    padding:1%;
+    z-index: 1;
+    transition:all 0.2s;
+}
+
+.MinPlaylistCard:hover{
+    box-shadow: 0px 0px 20px var(--space);
+    z-index: 2;
+  }

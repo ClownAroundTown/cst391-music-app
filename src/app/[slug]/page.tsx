@@ -1,11 +1,11 @@
 import './page.css'
 import 'bootstrap/dist/css/bootstrap.min.css';   
-import  Link from 'next/link';
 import { DBAlbum, DBTrack } from '@/lib/db';
 import AlbumOBJ from '@/lib/music_modules/albums/album.obj';
 import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
 import Page from './pagecomps';
 import { RoleTitle } from '@/lib/Title';
+import NavBar from '@/lib/NavBar/NavBar';
 
 export default async function OneAlbum(
     props: {
@@ -26,19 +26,26 @@ export default async function OneAlbum(
                         {return new AlbumOBJ(data)}
                     )[0];
 
-    const tracks:TrackOBJ[] = (await DBTrack.READ(query)).map((data:Record<string, any>) => {
+    if (!Number.isNaN(query) && query.toString()!="NaN" && query.toString()!="nan"){
+         const tracks:TrackOBJ[] = (await DBTrack.READ(query)).map((data:Record<string, any>) => {
         return new TrackOBJ(data)
-    })
-    const trackRend:Array<string[]> = new Array<string[]>()
-    tracks.forEach((track:TrackOBJ) => {
-        trackRend.push([track.title, track.lyrics])
-    })
+        })
+        const trackRend:Array<string[]> = new Array<string[]>()
+        tracks.forEach((track:TrackOBJ) => {
+            trackRend.push([track.title, track.lyrics])
+        })
 
-    return(
-        <>
-        <RoleTitle />
-        <Page title={album.title} image={album.image} description={album.description} ID={album.albumId} trackRend={trackRend}/>
-        </>
-    
-    );
+        return(
+            <>
+            <RoleTitle />
+            <NavBar />
+            <div className='CONTAINER'>
+                <Page title = {album.title}  image = {album.image} description={album.description} ID={album.albumId}trackRend={trackRend} />
+            </div>
+            </>
+        );
+    }
+    else{
+        
+    }
 };

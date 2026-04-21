@@ -1,53 +1,43 @@
 "use client"
-import PlaylistOBJ from '@/lib/music_modules/playlist/playlist.model';
+
+import { useState } from 'react';
 import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
-import { Button, Card, Col, Row } from 'react-bootstrap';
-import { DBTrack } from '@/lib/db';
-import Link from 'next/link';
+import { Button, Card, CardBody, CardHeader, Col, Form, Row } from 'react-bootstrap';
+import AlbumOBJ from '@/lib/music_modules/albums/album.obj';
+import './Card.css'
 
-async function getTracks(id:number){
-    const tracks:TrackOBJ[] = (await DBTrack.READ(id)).map((data:Record<string, any>) => {
-            return new TrackOBJ(data)
-        })
-    return tracks
-}
+const TrackSlot = (title:string, id:number) => {
+    const [isChecked, setIsChecked] = useState<boolean>(false);
+ 
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setIsChecked(event.target.checked);
+    };
 
-function renderTracks(tracks:TrackOBJ[]){
-    return tracks.map((track:TrackOBJ) => {
-        return (
-            <Row>
-                <Col sm={1}>
-                    CHECKBOX
-                </Col>
-                <Col md={2}>
-                    {track.number}
-                </Col>
-                <Col md={4}>
-                    {track.title}
-                </Col>
-                <Col md={5}>
-                    {track.lyrics}
-                </Col>
-            </Row>
-        )
-    })
-}
-
-const PlaylistCard = (playlist:PlaylistOBJ) => {
-    const tracks = getTracks(playlist.id);
-
-    return (
-        <div>
-            <Row>
-                <Col md={6}>
-                    <h1>{playlist.name}</h1>
-                </Col>
-                <Col md={6}>
-
-                </Col>
-            </Row>
-        </div>
+    return(
+        <Form.Check
+              name={id.toString()}
+              label={title}
+              onChange={handleChange}
+              id={id.toString()}
+              feedbackTooltip
+            />
     )
 }
 
-export default PlaylistCard
+export const PlaylistCardFull = (props:{cardTitle:string, TrackData:Array<[string, number]>}) => {
+    const tracks = props.TrackData.map((value:[string,number]) =>{
+        return TrackSlot(value[0], value[1])
+    })
+    return (
+        <Col md={3}>
+            <Card className='albumCard'>
+                <CardHeader>
+                    {props.cardTitle}
+                </CardHeader>
+                <CardBody className='trackCards'>
+                    {tracks}
+                </CardBody>
+            </Card>
+        </Col>
+    )
+}

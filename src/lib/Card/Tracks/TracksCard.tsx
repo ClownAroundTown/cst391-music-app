@@ -1,10 +1,6 @@
 "use client"
-import { DBAlbum, DBTrack } from '@/lib/db';
-import AlbumOBJ from '@/lib/music_modules/albums/album.obj';
-import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
-import { Nav, Tab, TabContent, TabContainer, Row, Col } from 'react-bootstrap';
-import { useSession } from 'next-auth/react';
-import Link from 'next/link';
+
+import { Nav, Tab, Row, Col } from 'react-bootstrap';;
 
 interface tracks{
     data:Array<string[]>
@@ -31,7 +27,7 @@ const TracksNavContent = (tracks:tracks) =>
 export const TrackAndLyric = (tracks:tracks) => {
     return (
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-      <Row>
+      <Row className='trackLIST'>
         <Col sm={4}>
             <h4>Tracks</h4>
           <Nav variant="pills" className="flex-column">

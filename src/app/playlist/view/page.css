@@ -1,0 +1,11 @@
+:root {
+  --space: #22223b;
+  --dust: #4a4e69;
+  --ash: #9a8c98;
+  --almond: #c9ada7;
+  --seashell: #f2e9e4;
+}
+
+body{
+  background-color: var(--space);
+}

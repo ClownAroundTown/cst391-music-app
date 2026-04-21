@@ -7,6 +7,13 @@ export const readTracks = (albumID:number) => {
     `
 }
 
+export const readOneTrack = (ID:number) => {
+    return `
+    SELECT * FROM tracks
+    WHERE id=${(ID)}
+    `
+}
+
 export const createTrack = (track:altTrackOBJ) => {
     return `
     INSERT INTO tracks (album_id, title, number, video_url) VALUES(${(track.id)},'${(track.title?.replaceAll("'", "''"))}',${(track.number)},'${(track.video)}')

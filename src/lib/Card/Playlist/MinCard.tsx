@@ -1,13 +1,12 @@
 "use client"
-import PlaylistOBJ from '@/lib/music_modules/playlist/playlist.model';
 import { Card } from 'react-bootstrap';
 import Link from 'next/link';
 
-const MinPlaylistCard = (playlist:PlaylistOBJ) => {
+const MinPlaylistCard = (props:{id:number, name:String}) => {
     return (
-        <Link href={`playlist?id=${playlist.id}`} passHref>
-            <Card>
-                <h1>{playlist.name}</h1>
+        <Link href={`playlist/view/?id=${props.id}`} passHref>
+            <Card className="MinPlaylistCard">
+                <h3>{props.name}</h3>
             </Card>
         </Link>
     )

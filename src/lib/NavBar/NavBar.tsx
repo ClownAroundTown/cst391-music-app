@@ -32,6 +32,11 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
+            <Link href="/playlist">
+              Playlists
+            </Link>
+          </li>
+          <li>
             <Link href="/api/auth/signin">
               Login
             </Link>

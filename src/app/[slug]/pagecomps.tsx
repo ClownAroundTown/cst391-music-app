@@ -1,12 +1,10 @@
 "use client"
-import { DBAlbum, DBTrack } from '@/lib/db';
-import AlbumOBJ from '@/lib/music_modules/albums/album.obj';
-import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
-import { Nav, Tab, TabContent, TabContainer, Row, Col } from 'react-bootstrap';
+
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { TrackAndLyric } from '@/lib/Card/Tracks/TracksCard';
 import { RoleTitle } from '@/lib/Title';
+import NavBar from '@/lib/NavBar/NavBar';
 
 interface props{
   title:string,
@@ -23,7 +21,7 @@ const Page = (props:props) =>{
 
   if (isAdmin){
   return(
-    <div className="container row">
+    <div className="AlbumDetails container row">
                 <div className='col-md-5'>
                     <h2>Album Details for {props.title}</h2>
                     <div className="card">
@@ -56,8 +54,9 @@ const Page = (props:props) =>{
   }
   else{
     return (
-      <div className="container row">
-                <div className='col-md-5'>
+        <>
+        <div className="container row">
+                <div className='Card col-md-5'>
                     <h2>Album Details for {props.title}</h2>
                     <div className="card">
                         <img 
@@ -82,6 +81,7 @@ const Page = (props:props) =>{
                     <TrackAndLyric data={props.trackRend}/>
                 </div>
             </div>
+        </>
     )
   }
 }

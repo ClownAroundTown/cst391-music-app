@@ -2,17 +2,18 @@ import dotenv from 'dotenv'
 import { neon } from '@neondatabase/serverless';
 import AlbumOBJ, { altAlbumOBJ } from './music_modules/albums/album.obj';
 import { readAlbums, readAlbumsByArtist, readAlbumsByDescription, readAlbumsById, readAlbumsByTitle, updateAlbum, createAlbum, deleteAlbum } from './music_modules/albums/albums.queries';
-import { readTracks, createTrack, updateTrack, deleteTrack } from './music_modules/tracks/tracks.queries';
+import { readTracks, readOneTrack, createTrack, updateTrack, deleteTrack } from './music_modules/tracks/tracks.queries';
 import TrackOBJ, { altTrackOBJ } from './music_modules/tracks/tracks.model';
 import PlaylistOBJ, { altPlaylistOBJ } from './music_modules/playlist/playlist.model';
-import { readPlaylists, readPlaylistTracks, addPlaylistTracks, removePlaylistTrack, editPlaylist, deletePlaylist, createPlaylist } from './music_modules/playlist/playlist.queries';
+import { readPlaylists, readPlaylistByTitle, readPlaylistByID, readPlaylistTracks, addPlaylistTracks, removePlaylistTrack, editPlaylist, deletePlaylist, createPlaylist } from './music_modules/playlist/playlist.queries';
 
 dotenv.config()
 
 async function SQL(query:string){
-    const sql = neon(process.env.DATABASE_URL!);
-    const response = await sql.query(query)
-    return response
+      const sql = neon(process.env.DATABASE_URL!);
+      //console.log(query)
+      const response = await sql.query(query)
+      return response
 }
 
 class albumDB {
@@ -27,8 +28,7 @@ class albumDB {
         return SQL(readAlbumsByArtist(artist))
       }
       else if (id != null && id != undefined){
-        console.log("ID NOT NAN? ", !Number.isNaN(id), id)
-        if (!Number.isNaN(id) ){
+        if (!Number.isNaN(id) && id.toString()!="NaN" && id.toString()!="nan"){
           console.log(readAlbumsById(id))
           return SQL(readAlbumsById(id))
         }
@@ -67,6 +67,9 @@ class trackDB{
   public READ(albumID:number){
     return SQL(readTracks(albumID))
   }
+  public READONE(ID:number){
+    return SQL(readOneTrack(ID))
+  }
   public CREATE(track:TrackOBJ|altTrackOBJ){
     return SQL(createTrack(track))
   }
@@ -83,13 +86,20 @@ class playlistDB{
     return SQL(createPlaylist(playlist));
   }
 
-  public READ(id:number | null = null){
-    if (id==null){
-      return SQL(readPlaylists())
+  public READ(id:number | null = null, title:string | null = null){
+    if (id!=null){
+      return SQL(readPlaylistByID(id))
+    }
+    else if (title!=null){
+      return SQL(readPlaylistByTitle(title))
     }
     else{
-      return SQL(readPlaylistTracks(id))
+      return SQL(readPlaylists())
     }
+  }
+
+  public TRACKS(id:number){
+    return SQL(readPlaylistTracks(id))
   }
 
   public EDIT(playlist:PlaylistOBJ){
@@ -101,8 +111,8 @@ class playlistDB{
   }
 
   public ADD_TRACKS(playlist:PlaylistOBJ, tracks:TrackOBJ[]){
-    return tracks.map((track:TrackOBJ) => {
-      return SQL(addPlaylistTracks(playlist, track))
+    return tracks.forEach((track:TrackOBJ) => {
+      SQL(addPlaylistTracks(playlist, track))
     })
   }
 

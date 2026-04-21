@@ -1,11 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';   
-import AddAlbum from '@/lib/AddForm/Album/Form';
+import Editor from '@/lib/AddForm/AddPlaylist/playlistEditor';
+import NavBar from '@/lib/NavBar/NavBar';
+import './page.css'
+import { RoleTitle } from '@/lib/Title';
 
-export default async function Page (){
-    const form = AddAlbum()
+export default async function Page(){
    return (
+    <>
+    <RoleTitle />
+    <NavBar />
     <div>
-        {form}
+        <Editor />
     </div>
+    </>
   )
  };

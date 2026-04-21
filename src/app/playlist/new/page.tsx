@@ -8,7 +8,6 @@ export default async function Page(){
    return (
     <>
     <RoleTitle />
-    <NavBar />
     <div>
         <Editor />
     </div>

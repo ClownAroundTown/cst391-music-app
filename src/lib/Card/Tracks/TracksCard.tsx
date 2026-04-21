@@ -20,7 +20,12 @@ const TracksNavContent = (tracks:tracks) =>
     {
         return tracks.data.map((str:string[]) => {
             return (
-            <Tab.Pane eventKey={str[0]}>{str[1]}</Tab.Pane>
+            <Tab.Pane eventKey={str[0]}>
+              {str[1]}
+              <hr/>
+              <h4>Video</h4>
+              <iframe src={str[2]} allowFullScreen />
+            </Tab.Pane>
             )
     })}
 

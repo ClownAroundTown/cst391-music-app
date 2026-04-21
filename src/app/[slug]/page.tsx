@@ -32,7 +32,7 @@ export default async function OneAlbum(
         })
         const trackRend:Array<string[]> = new Array<string[]>()
         tracks.forEach((track:TrackOBJ) => {
-            trackRend.push([track.title, track.lyrics])
+            trackRend.push([track.title, track.lyrics, track.video])
         })
 
         return(

@@ -68,11 +68,20 @@ export async function Submit(formData:FormData){
     DBPlaylist.CREATE(newPlaylist);
     const playlist = (await DBPlaylist.READ(null, title)).map((data:Record<string, any>) => { return new PlaylistOBJ(data)})
     try{
-        DBPlaylist.ADD_TRACKS(playlist[0], tracks)
+        DBPlaylist.ADD_TRACKS(playlist[playlist.length - 1], tracks)
     }
-    catch{
-        console.log("ERROR! Playlist does not exist.")
+    catch (error){
+        console.log("An Error occurred: ", error)
+        console.log("Attempting one more time...")
+        try{
+            if (playlist.length > 1){
+            DBPlaylist.ADD_TRACKS(playlist[playlist.length - 1], tracks)
+        }
+        }
+        catch (error){
+            console.log("Could not add playlist! Details: ", error)
+        }
     }
 
-    redirect(`/`) 
+    redirect(`/playlist`) 
 }

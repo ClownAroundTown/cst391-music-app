@@ -1,7 +1,7 @@
 'use server'
 
 import { DBTrack, DBAlbum, DBPlaylist } from "@/lib/db";
-import TrackOBJ from "@/lib/NavBar/tracks/tracks.model";
+import TrackOBJ from "@/lib/music_modules/tracks/tracks.model";
 import AlbumOBJ from "@/lib/music_modules/albums/album.obj";
 import PlaylistOBJ, { altPlaylistOBJ } from "@/lib/music_modules/playlist/playlist.model";
 import { redirect } from 'next/navigation'
@@ -70,8 +70,8 @@ export async function Submit(formData:FormData){
     try{
         DBPlaylist.ADD_TRACKS(playlist[0], tracks)
     }
-    catch{
-        console.log("ERROR! Playlist does not exist.")
+    catch (error){
+        console.log("ERROR! Playlist does not exist. Details: ", error)
     }
 
     redirect(`/`) 

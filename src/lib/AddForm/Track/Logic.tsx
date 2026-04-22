@@ -1,7 +1,7 @@
 'use server'
 
 import { DBTrack } from '@/lib/db';
-import { altTrackOBJ } from '@/lib/NavBar/tracks/tracks.model';
+import { altTrackOBJ } from '@/lib/music_modules/tracks/tracks.model';
 import { redirect } from 'next/navigation'
 
 export default async function createTrack(

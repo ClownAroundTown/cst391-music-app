@@ -19,7 +19,7 @@ export default class TrackOBJ implements Track{
         this.id= data.id;
         this.title=data.title;
         this.number=data.number;
-        this.video=data.video;
+        this.video=data.video_url;
         this.lyrics=data.lyrics;
     }
 }

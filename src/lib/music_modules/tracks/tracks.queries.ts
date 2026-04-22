@@ -20,9 +20,9 @@ export const createTrack = (track:altTrackOBJ) => {
     `
 }
 
-export const updateTrack = (track:TrackOBJ) => {
+export const updateTrack = (track:TrackOBJ|altTrackOBJ) => {
     return `UPDATE tracks
-    SET title = '${(track.title?.replaceAll("'", "''"))}', number = ${((track.number))}, video_url = '${((track.video))}', lyrics = '${((track.lyrics?.replaceAll("'", "''")))}'
+    SET title = '${(track.title?.replaceAll("'", "''"))}', number = ${((track.number))}, video_url = '${(track.video)}', lyrics = '${((track.lyrics?.replaceAll("'", "''")))}'
     WHERE id = ${(track.id)};
     `
 }

@@ -1,6 +1,7 @@
 "use client"
 
-import { Nav, Tab, Row, Col } from 'react-bootstrap';;
+import { Nav, Tab, Row, Col } from 'react-bootstrap';
+import { Suspense } from 'react';
 
 interface tracks{
     data:Array<string[]>
@@ -10,7 +11,7 @@ interface tracks{
 const TracksNavTabs = (tracks:tracks) => {
     return tracks.data.map((str:string[]) => {
         return(
-        <Nav.Item>
+        <Nav.Item key={str[0]}>
               <Nav.Link eventKey={str[0].toString()}>{str[0]}</Nav.Link>
         </Nav.Item>
         )
@@ -20,11 +21,18 @@ const TracksNavContent = (tracks:tracks) =>
     {
         return tracks.data.map((str:string[]) => {
             return (
-            <Tab.Pane eventKey={str[0]}>
+            <Tab.Pane eventKey={str[0]} key={str[0]}>
               {str[1]}
               <hr/>
               <h4>Video</h4>
-              <iframe src={str[2]} allowFullScreen />
+              <Suspense fallback={<p>Loading video...</p>}>
+                <iframe 
+                src={str[2]} 
+                height="250" 
+                width="450" 
+                allowFullScreen
+                loading="lazy" />
+              </Suspense>
             </Tab.Pane>
             )
     })}

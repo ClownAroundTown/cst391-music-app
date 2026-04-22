@@ -1,5 +1,5 @@
 import { Album } from './albums.model'
-import { Track } from '../../NavBar/tracks/tracks.model'
+import { Track } from '../tracks/tracks.model'
 
 export default class AlbumOBJ implements Album{
     albumId: number

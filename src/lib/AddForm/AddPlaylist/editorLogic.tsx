@@ -1,7 +1,7 @@
 'use server'
 
 import { DBTrack, DBAlbum, DBPlaylist } from "@/lib/db";
-import TrackOBJ from "@/lib/NavBar/tracks/tracks.model";
+import TrackOBJ from "@/lib/music_modules/tracks/tracks.model";
 import AlbumOBJ from "@/lib/music_modules/albums/album.obj";
 import PlaylistOBJ, { altPlaylistOBJ } from "@/lib/music_modules/playlist/playlist.model";
 import { redirect } from 'next/navigation'
@@ -63,7 +63,7 @@ export async function Submit(formData:FormData){
     }
 
     console.log(title)
-    console.log(tracks)
+    console.log("TRACKS: ", tracks)
     const newPlaylist = new altPlaylistOBJ(title)
     DBPlaylist.CREATE(newPlaylist);
     const playlist = (await DBPlaylist.READ(null, title)).map((data:Record<string, any>) => { return new PlaylistOBJ(data)})

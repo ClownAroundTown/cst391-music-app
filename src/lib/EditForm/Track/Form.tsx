@@ -1,7 +1,7 @@
 import Form from 'next/form'
 import 'bootstrap/dist/css/bootstrap.min.css';   
 import updateTrack from './FormLogic';
-import TrackOBJ from '@/lib/NavBar/tracks/tracks.model';
+import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
 import { Card } from 'react-bootstrap';
 
 

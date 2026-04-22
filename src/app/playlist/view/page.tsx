@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Page from './pagecomps';
 import { DBPlaylist, DBTrack} from '@/lib/db';
 import PlaylistOBJ from '@/lib/music_modules/playlist/playlist.model';
-import TrackOBJ from '@/lib/NavBar/tracks/tracks.model';
+import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
 import NavBar from '@/lib/NavBar/NavBar';
 
 async function renderTrack(id:number){

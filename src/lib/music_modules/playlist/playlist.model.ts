@@ -1,5 +1,5 @@
 import AlbumOBJ from '../albums/album.obj'
-import TrackOBJ from '../../NavBar/tracks/tracks.model'
+import TrackOBJ from '../tracks/tracks.model'
 
 interface Playlist{
     id:number

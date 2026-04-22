@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react';
-import TrackOBJ from '@/lib/NavBar/tracks/tracks.model';
+import TrackOBJ from '@/lib/music_modules/tracks/tracks.model';
 import { Button, Card, CardBody, CardHeader, Col, Form, Row } from 'react-bootstrap';
 import AlbumOBJ from '@/lib/music_modules/albums/album.obj';
 import './Card.css'

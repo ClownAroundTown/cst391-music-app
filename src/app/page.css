@@ -119,6 +119,12 @@
     transition: all 0.2s;
   }
 
+  .madeby{
+    color: var(--almond);
+    font-size:10px;
+    margin-right: 5px;
+  }
+
   li {
     background-color:var(--ash);
     height: 30px;

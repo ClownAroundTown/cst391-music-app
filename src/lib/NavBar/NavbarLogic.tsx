@@ -46,6 +46,9 @@ export const ClientNavBar = () => {
             </Link>
           </li>
         </ul>
+        <span className="madeby">
+          Made by Samantha Torres
+        </span>
       </div>
     </nav>
   );
@@ -85,6 +88,9 @@ export const ClientNavBar = () => {
             </Link>
           </li>
         </ul>
+        <span className="madeby">
+          Made by Samantha Torres
+        </span>
       </div>
     </nav>
   );

@@ -11,6 +11,7 @@ import { Actions } from './pagecomps';
 
 export default async function Page (){
    const playlists = (await DBPlaylist.READ()).map((data:Record<string, any>) => new PlaylistOBJ(data))
+   console.log(playlists)
    const cards = playlists.map((data:PlaylistOBJ) => {
     return <MinPlaylistCard id={data.id} name={data.name}/>;
    })
